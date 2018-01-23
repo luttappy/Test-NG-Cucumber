@@ -6,6 +6,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.junit.*;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+
+import cucumber.api.PendingException;
 
 //import com.relevantcodes.extentreports.LogStatus;
 
@@ -25,15 +31,22 @@ public class Stepdefs {
     By password = By.name("password");
     By submit = By.name("login");
 
+    
+
     @Given("^the user opened \"([^\"]*)\" browser$")
     public void the_user_opened_browser(String arg1) {
-        service = new ChromeDriverService.Builder().usingChromeDriverExecutable(new File("C:\\Users\\Ramesh\\Downloads\\chromedriver.exe")).usingAnyFreePort().build();
+    	System.out.println("inside step defs");
+//        service = new ChromeDriverService.Builder().usingChromeDriverExecutable(new File("C:\\chromedriver.exe")).usingAnyFreePort().build();
+        service = new ChromeDriverService.Builder()
+                .usingDriverExecutable(new File("C:\\Program Files (x86)\\Google\\chromedriver_win32\\chromedriver.exe"))
+                .usingAnyFreePort()
+                .build();
         try {
             service.start();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.setProperty("webdriver.chrome.driver", "C:/Users/Ramesh/Downloads/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Program Files (x86)\\Google\\chromedriver_win32\\chromedriver.exe");
         driver = new RemoteWebDriver(service.getUrl(),
                 DesiredCapabilities.chrome());
         //	System.setProperty("webdriver.gecko.driver", "D:\\\\ToolsQA\\trunk\\Library\\drivers\\geckodriver.exe");

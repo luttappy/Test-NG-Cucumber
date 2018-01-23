@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
@@ -50,7 +48,7 @@ public class Login {
 
         if (browser.equalsIgnoreCase("chrome")) {
             logger.log(LogStatus.INFO, "Browser started ");
-            chromeService = new ChromeDriverService.Builder().usingChromeDriverExecutable(new File(driversPath + "/chromedriver.exe")).usingAnyFreePort().build();
+            chromeService = new ChromeDriverService.Builder().usingDriverExecutable(new File(driversPath + "/chromedriver.exe")).usingAnyFreePort().build();
             try {
                 chromeService.start();
             } catch (IOException e) {

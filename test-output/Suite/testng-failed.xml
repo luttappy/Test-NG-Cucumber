@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="1" name="Failed suite [Suite]" parallel="tests">
-  <parameter name="browser" value="firefox"/>
+  <parameter name="browser" value="chrome"/>
   <test name="chromeTest(failed)" parallel="tests">
-    <parameter name="browser" value="firefox"/>
+    <parameter name="browser" value="chrome"/>
     <classes>
       <class name="info.cukes.cucumber_jvm.Login">
         <methods>
